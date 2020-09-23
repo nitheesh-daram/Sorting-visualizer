@@ -1,3 +1,17 @@
 *{
   margin: 0;
 }
+.whole_container{
+  margin: 2%;
+}
+.simulator{
+  width: 70%;
+  float: left;
+  height: 80vh;
+  background-color: blue;
+}
+.controls{
+  margin-left:70% ;
+  background-color: brown;
+  height: 80vh;
+}
