@@ -6,7 +6,6 @@ import { bubblesort } from "../Algos/Algos";
 // Animation speed
 let speed = 1;
 
-
 export default class Simulator extends Component {
   constructor(props) {
     super();
@@ -21,8 +20,9 @@ export default class Simulator extends Component {
 
   resetarray() {
     const array = [];
-    let size=document.getElementById('size');
-    for (let index = 0; index < 150; index++) {
+    // Array size
+    let size = document.getElementById("size").value;
+    for (let index = 0; index < size; index++) {
       array.push(randomIntfromRange(10, 500));
     }
     this.setState({ array });
@@ -73,6 +73,7 @@ export default class Simulator extends Component {
               ></div>
             );
           })}
+          <br />
           <button className="btn btn-primary" onClick={() => this.resetarray()}>
             Generate New array
           </button>
@@ -82,7 +83,13 @@ export default class Simulator extends Component {
           <button className="btn btn-primary" onClick={() => this.bubblesort()}>
             bubble Sort
           </button>
-          <input type="range" min="10" max="200" onChange={this.resetarray()}></input>
+          <input
+            id="size"
+            type="range"
+            min="10"
+            max="150"
+            onChange={() => this.resetarray()}
+          ></input>
         </div>
       </>
     );
