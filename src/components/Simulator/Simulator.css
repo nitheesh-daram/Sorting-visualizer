@@ -5,11 +5,12 @@
   float: left;
   position: absolute;
   left: 2%;
+  margin-left: 2%;
 }
 .array-bar {
   width: 0.215%;
   /* width: 5px; */
   display: inline-block;
-  margin: 0 0.215%;
+  /* margin: 0 0.215%; */
   background-color: blueviolet;
 }
