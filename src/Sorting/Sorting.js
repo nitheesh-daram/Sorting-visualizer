@@ -9,7 +9,7 @@ const Sorting = () => {
       <Navbar />
       <section className="whole_container">
         <Simulator />
-        <Controls />
+        {/* <Controls /> */}
       </section>
     </div>
   );

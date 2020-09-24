@@ -1,13 +1,15 @@
-.simulator{
-    width: 70%;
-    margin-top: 5%;
-    float: left;
-    position: absolute;
-    left: 2%;
-} 
-.array-bar{
-     width: 0.215%;
-    display: inline-block;
-    margin:0 0.215%;
-    background-color: blueviolet;
+.simulator {
+  /* width: 70%; */
+  width: 100%;
+  margin-top: 5%;
+  float: left;
+  position: absolute;
+  left: 2%;
+}
+.array-bar {
+  width: 0.215%;
+  /* width: 5px; */
+  display: inline-block;
+  margin: 0 0.215%;
+  background-color: blueviolet;
 }
