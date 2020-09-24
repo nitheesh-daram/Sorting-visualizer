@@ -1,0 +1,10 @@
+.array-bar{
+    display: inline-block;
+    margin: 2%;
+}
+.simulator{
+    width: 70%;
+    float: left;
+    height: 80vh;
+    background-color: blue;
+  }
