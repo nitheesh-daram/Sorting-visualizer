@@ -1,10 +1,13 @@
-.array-bar{
-    display: inline-block;
-    margin: 2%;
-}
 .simulator{
     width: 70%;
+    margin-top: 5%;
     float: left;
-    height: 80vh;
-    background-color: blue;
-  }
+    position: absolute;
+    left: 2%;
+} 
+.array-bar{
+     width: 0.215%;
+    display: inline-block;
+    margin:0 0.215%;
+    background-color: blueviolet;
+}

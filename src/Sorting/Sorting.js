@@ -1,7 +1,8 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
-import Simulator from "../Simulator/Simulator";
-import Controls from "../Controls/Controls";
+import Navbar from "../components/Navbar/Navbar";
+import Simulator from "../components/Simulator/Simulator";
+import Controls from "../components/Controls/Controls";
+
 const Sorting = () => {
   return (
     <div>
