@@ -110,6 +110,7 @@ export default class Simulator extends Component {
     let temp = document.getElementById("speed").value;
     temp = temp === 1 ? temp : temp - 1;
     temp = temp === 0 ? temp + 1 : temp;
+    // eslint-disable-next-line
     this.state.speed = temp;
     document.getElementById("speed-data").innerHTML =
       "Animation Speed : " + temp + "ms";

@@ -2,42 +2,42 @@
   margin-top: 5%;
 }
 .buttons {
-    width: 80%;
-    /* margin: auto; */
-  }
+  width: 80%;
+}
 
-  .new {
-    float: left;
-    margin-left: 0%;
-  }
-  .start {
-    float: right;
-    margin-right: 5%;
-  }
-  .data-single {
-    display: inline-block;
-  }
-  #speed-data,
-  #swap {
-    margin-left: 5%;
-  }
+.new {
+  float: left;
+  margin-left: 0%;
+}
+.start {
+  float: right;
+  margin-right: 5%;
+}
+.data-single {
+  display: inline-block;
+}
+#speed-data,
+#swap {
+  margin-left: 5%;
+}
 
-  #swap,
-  #comp {
-    color: red;
-  }
-@media screen and (max-width: 500px) {
+#swap,
+#comp {
+  color: red;
+}
+
+
+
+/* phone and tablet */
+@media screen and (max-width: 1100px) {
   .simulator {
     width: 100%;
-    /* float: left; */
     position: relative;
-    /* left: 1%; */
     margin-left: 1%;
-    border-radius: 25px;
   }
   .array-box {
-    padding: 10px;
-    height: 450px;
+    padding: 5%;
+    height: 100%;
     padding-top: 5%;
     overflow: hidden;
   }
@@ -45,13 +45,11 @@
     display: inline-block;
     /* background-color: #343a40; */
     background-color: white;
-    /* border-top-style:dashed ; */
-    /* border-top-color: black; */
   }
   .controls {
     margin-left: 5%;
-    height: 80vh;
     padding-top: 5%;
+    padding-bottom: 10%;
     color: white;
   }
 
@@ -65,7 +63,6 @@
   }
   hr {
     margin-right: 20px;
-    /* background-color: black; */
     height: 2px;
     background-color: white;
   }
@@ -73,18 +70,16 @@
     width: 80%;
     margin: auto;
   }
-
-  
 }
 
-@media screen and (min-width: 500px) {
+/* Lappy Screen */
+@media screen and (min-width: 1100px) {
   .simulator {
     width: 65%;
     float: left;
     position: absolute;
     left: 1%;
     margin-left: 1%;
-    border-radius: 25px;
   }
   .array-box {
     padding: 10px;
@@ -96,8 +91,6 @@
     display: inline-block;
     /* background-color: #343a40; */
     background-color: white;
-    /* border-top-style:dashed ; */
-    /* border-top-color: black; */
   }
   .controls {
     margin-left: 70%;
@@ -107,7 +100,6 @@
   }
 
   .title {
-    /* margin-top: 10%; */
     width: 100%;
     margin-bottom: 10%;
   }
