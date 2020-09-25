@@ -27,7 +27,7 @@ export default class Simulator extends Component {
     // Array size
     let size = document.getElementById("size").value;
     for (let index = 0; index < size; index++) {
-      array.push(randomIntfromRange(10, 500));
+      array.push(randomIntfromRange(10, 400));
     }
     this.setState({ array, comparisions, swaps });
   }
@@ -38,12 +38,12 @@ export default class Simulator extends Component {
       let comparison = animations[index].comparision;
       let swap = animations[index].swap;
       setTimeout(() => {
-        arrayBars[comparison[1]].style.backgroundColor = "black";
-        this.state.comparisions = this.state.comparisions + 1;
-        arrayBars[comparison[0]].style.backgroundColor = "black";
+        arrayBars[comparison[1]].style.backgroundColor = "orange";
+        arrayBars[comparison[0]].style.backgroundColor = "red";
         let comp = document.getElementById("comp");
+        this.state.comparisions = this.state.comparisions + 1;
         comp.innerHTML = "Comparisions : " + this.state.comparisions;
-      }, index * speed);
+      }, speed);
       setTimeout(() => {
         let temp = arrayBars[swap[1]].style.height;
         arrayBars[swap[1]].style.height = arrayBars[swap[0]].style.height;
@@ -53,12 +53,12 @@ export default class Simulator extends Component {
           let comp = document.getElementById("swap");
           comp.innerHTML = "Swaps : " + this.state.swaps;
         }
-      }, index * speed);
+      }, speed);
       setTimeout(() => {
         const arrayBars = document.getElementsByClassName("array-bar");
         arrayBars[comparison[1]].style.backgroundColor = "blueviolet";
         arrayBars[comparison[0]].style.backgroundColor = "blueviolet";
-      }, (index + 1) * speed);
+      }, speed);
     }
   }
 
@@ -71,41 +71,70 @@ export default class Simulator extends Component {
     this.animate(animations);
   }
 
+  start() {
+    const algo = document.getElementById("algo").value;
+    console.log(algo);
+    if (algo === "1") {
+      this.normalsort();
+    } else if (algo === "2") {
+      this.bubblesort();
+    } else {
+      alert("select algo!");
+    }
+  }
   render() {
     const array = this.state.array;
+    let f = 100 / array.length;
     return (
       <>
-        <div className="simulator">
-          {array.map((e, i) => {
-            return (
-              <div
-                className="array-bar"
-                key={i}
-                style={{ height: e + "px" }}
-              ></div>
-            );
-          })}
-          <br />
-          <button className="btn btn-primary" onClick={() => this.resetarray()}>
-            Generate New array
-          </button>
-          <button className="btn btn-primary" onClick={() => this.normalsort()}>
-            Normal Sort
-          </button>
-          <button className="btn btn-primary" onClick={() => this.bubblesort()}>
-            bubble Sort
-          </button>
-          <input
-            id="size"
-            type="range"
-            min="150"
-            max="450"
-            onChange={() => this.resetarray()}
-          ></input>
+        <section className="whole_container">
+          <div className="simulator">
+            <div className="array-box">
+              {array.map((e, i) => {
+                return (
+                  <div
+                    className="array-bar"
+                    key={i}
+                    style={{ height: e + "px", width: f + "%" }}
+                  ></div>
+                );
+              })}
+            </div>
+          </div>
 
-          <h6 id="comp">Comparisions : {this.state.comparisions}</h6>
-          <h6 id="swap">Swaps : {this.state.swaps}</h6>
-        </div>
+          <div className="controls">
+            <br />
+            <button
+              className="btn btn-primary"
+              onClick={() => this.resetarray()}
+            >
+              Generate New array
+            </button>{" "}
+            <br />
+            <label>Select Sorting Algorithm : </label> <span></span>
+            <select id="algo" name="algo" classname="">
+              <option value="">--Select--</option>
+              <option value="1">Naive Sort</option>
+              <option value="2">Bubble Sort</option>
+            </select>
+            <br />
+            <label>Adjust Size : </label> <span></span>
+            <input
+              id="size"
+              type="range"
+              min="50"
+              max="200"
+              defaultValue="100"
+              onChange={() => this.resetarray()}
+            ></input>
+            <h6 id="arraySize">Size : {this.state.array.length}</h6>
+            <button className="btn btn-primary" onClick={() => this.start()}>
+              Start
+            </button>
+            <h6 id="comp">Comparisions : {this.state.comparisions}</h6>
+            <h6 id="swap">Swaps : {this.state.swaps}</h6>
+          </div>
+        </section>
       </>
     );
   }

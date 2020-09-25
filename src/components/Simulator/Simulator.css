@@ -1,16 +1,26 @@
-.simulator {
-  /* width: 70%; */
-  width: 100%;
+.whole_container{
   margin-top: 5%;
+}
+
+
+.simulator {
+  width: 65%;
   float: left;
   position: absolute;
-  left: 2%;
-  margin-left: 2%;
+  left: 1%;
+  margin-left:1%;
+  border-radius: 25px;
 }
-.array-bar {
-  width: 0.215%;
-  /* width: 5px; */
+.array-box{
+  padding: 10px;
+  height: 450px;
+  padding-top: 5%;
+}
+.array-bar  {
   display: inline-block;
-  /* margin: 0 0.215%; */
   background-color: blueviolet;
+}
+.controls{
+  margin-left:70% ;
+  height: 80vh;
 }
