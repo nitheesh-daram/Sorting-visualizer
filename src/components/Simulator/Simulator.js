@@ -4,7 +4,6 @@ import { normalsort } from "../Algos/Algos";
 import { bubblesort } from "../Algos/Algos";
 import { mergesort } from "../Algos/Algos";
 
-
 export default class Simulator extends Component {
   constructor(props) {
     super();

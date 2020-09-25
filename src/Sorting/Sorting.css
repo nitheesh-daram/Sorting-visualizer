@@ -1,9 +1,3 @@
-.whole_container{
-    margin: 2%;
-  }
-  .simulator{
-    width: 70%;
-    float: left;
-    height: 80vh;
-    background-color: blue;
-  }
+.whole_container {
+  margin: 2%;
+}

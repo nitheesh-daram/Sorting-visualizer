@@ -6,15 +6,18 @@ const Navbar = () => {
       <a className="navbar-brand" href="/">
         Sorting Visualizer
       </a>
-        <ul class="navbar-nav">
-          <li className="nav-item active" style={{color:"white",fontSize:"80%",marginTop:"10%"}}>
-            - Made with{" "}
-            <span role="img" aria-label="">
-              ❤️
-            </span>{" "}
-            by Nitheesh Daram
-          </li>
-        </ul>
+      <ul class="navbar-nav">
+        <li
+          className="nav-item active"
+          style={{ color: "white", fontSize: "80%", marginTop: "10%" }}
+        >
+          - Made with{" "}
+          <span role="img" aria-label="">
+            ❤️
+          </span>{" "}
+          by Nitheesh Daram
+        </li>
+      </ul>
     </nav>
   );
 };
