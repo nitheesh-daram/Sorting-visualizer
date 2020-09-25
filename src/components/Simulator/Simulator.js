@@ -4,7 +4,7 @@ import { normalsort } from "../Algos/Algos";
 import { bubblesort } from "../Algos/Algos";
 import { mergesort } from "../Algos/Algos";
 // Animation speed
-let speed = 10;
+// let speed = 1;
 
 export default class Simulator extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ export default class Simulator extends Component {
       array: [],
       comparisions: 0,
       swaps: 0,
+      speed: 1,
     };
   }
 
@@ -33,12 +34,13 @@ export default class Simulator extends Component {
   }
 
   animate(animations) {
+    let speed = this.state.speed;
     const arrayBars = document.getElementsByClassName("array-bar");
     for (let index = 0; index < animations.length; index++) {
       let comparison = animations[index].comparision;
       let swap = animations[index].swap;
       setTimeout(() => {
-        arrayBars[comparison[1]].style.backgroundColor = "orange";
+        arrayBars[comparison[1]].style.backgroundColor = "black";
         arrayBars[comparison[0]].style.backgroundColor = "red";
         let comp = document.getElementById("comp");
         // eslint-disable-next-line
@@ -60,7 +62,7 @@ export default class Simulator extends Component {
         const arrayBars = document.getElementsByClassName("array-bar");
         arrayBars[comparison[1]].style.backgroundColor = "blueviolet";
         arrayBars[comparison[0]].style.backgroundColor = "blueviolet";
-      }, index * speed);
+      }, (index + 1) * speed);
     }
   }
 
@@ -75,6 +77,7 @@ export default class Simulator extends Component {
 
   mergesort() {
     const animations = mergesort(this.state.array);
+    let speed = this.state.speed;
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName("array-bar");
       const isColorChange = i % 3 !== 2;
@@ -104,7 +107,14 @@ export default class Simulator extends Component {
       }
     }
   }
-
+  speed() {
+    let temp = document.getElementById("speed").value;
+    temp = temp === 1 ? temp : temp - 1;
+    temp = temp === 0 ? temp + 1 : temp;
+    this.state.speed = temp;
+    document.getElementById("speed-data").innerHTML =
+      "Animation Speed : " + temp + "ms";
+  }
   start() {
     const algo = document.getElementById("algo").value;
     if (algo === "1") {
@@ -138,36 +148,74 @@ export default class Simulator extends Component {
             </div>
           </div>
           <div className="controls">
-            <br />
-            <button
-              className="btn btn-primary"
-              onClick={() => this.resetarray()}
-            >
-              Generate New array
-            </button>{" "}
-            <br />
-            <label>Sorting Algorithm : </label> <span></span>
-            <select id="algo" name="algo" defaultValue="3">
-              <option value="1">Naive Sort</option>
-              <option value="2">Bubble Sort</option>
-              <option value="3">Merge Sort</option>
-            </select>
-            <br />
-            <label>Adjust Size : </label> <span></span>
-            <input
-              id="size"
-              type="range"
-              min="100"
-              max="800"
-              defaultValue="150"
-              onChange={() => this.resetarray()}
-            ></input>
-            <h6 id="arraySize">Size : {this.state.array.length}</h6>
-            <button className="btn btn-success" onClick={() => this.start()}>
-              Start
-            </button>
-            <h6 id="comp">Comparisions : {this.state.comparisions}</h6>
-            <h6 id="swap">Swaps : {this.state.swaps}</h6>
+            <div className="title">
+              <h1>Sorting Visualizer</h1>
+            </div>
+            <div className="real-controls">
+              <label>Sorting Algorithm : </label> <span></span>
+              <select id="algo" name="algo" defaultValue="3">
+                <option value="1">Naive Sort</option>
+                <option value="2">Bubble Sort</option>
+                <option value="3">Merge Sort</option>
+              </select>
+              <br />
+              <label>Adjust Size : </label> <span></span>
+              <input
+                id="size"
+                type="range"
+                min="100"
+                max="800"
+                defaultValue="150"
+                onChange={() => this.resetarray()}
+              ></input>
+              <br />
+              <label>Adjust Speed : </label> <span></span>
+              <input
+                id="speed"
+                type="range"
+                min="1"
+                max="101"
+                defaultValue="1"
+                step="25"
+                onChange={() => this.speed()}
+              ></input>
+            </div>
+            <hr />
+            <div className="data">
+              <div className="sizeandspeed">
+                <h6 className="data-single" id="arraySize">
+                  Array Size : {this.state.array.length}{" "}
+                </h6>
+                <h6 className="data-single" id="speed-data">
+                  Animation Speed : {this.state.speed}ms
+                </h6>
+              </div>
+              <div className="compandswap">
+                <h6 className="data-single" id="comp">
+                  Comparisions : {this.state.comparisions}
+                </h6>
+                <h6 className="data-single" id="swap">
+                  Swaps : {this.state.swaps}
+                </h6>
+              </div>
+            </div>
+            <hr />
+            <div className="buttons">
+              <button
+                className="btn new btn-primary"
+                onClick={() => this.resetarray()}
+              >
+                Generate New array
+              </button>
+              <span />
+              <button
+                className="btn start btn-success"
+                onClick={() => this.start()}
+              >
+                Start
+              </button>
+            </div>
+            <div className="algo-info"></div>
           </div>
         </section>
       </>
