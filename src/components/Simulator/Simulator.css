@@ -2,7 +2,6 @@
   margin-top: 5%;
 }
 
-
 .simulator {
   width: 65%;
   float: left;
@@ -19,7 +18,8 @@
 }
 .array-bar  {
   display: inline-block;
-  background-color: blueviolet;
+  /* background-color: #343a40; */
+  background-color: white;
   /* border-top-style:dashed ; */
   /* border-top-color: black; */
 }
@@ -27,6 +27,7 @@
   margin-left:70% ;
   height: 80vh;
   padding-top: 5%;
+  color: white;
 }
 
 .title{

@@ -3,8 +3,7 @@ import "./Simulator.css";
 import { normalsort } from "../Algos/Algos";
 import { bubblesort } from "../Algos/Algos";
 import { mergesort } from "../Algos/Algos";
-// Animation speed
-// let speed = 1;
+
 
 export default class Simulator extends Component {
   constructor(props) {
@@ -60,8 +59,8 @@ export default class Simulator extends Component {
       }, index * speed);
       setTimeout(() => {
         const arrayBars = document.getElementsByClassName("array-bar");
-        arrayBars[comparison[1]].style.backgroundColor = "blueviolet";
-        arrayBars[comparison[0]].style.backgroundColor = "blueviolet";
+        arrayBars[comparison[1]].style.backgroundColor = "white";
+        arrayBars[comparison[0]].style.backgroundColor = "white";
       }, (index + 1) * speed);
     }
   }
@@ -85,7 +84,7 @@ export default class Simulator extends Component {
         const [barOneIdx, barTwoIdx] = animations[i];
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? "red" : "blueviolet";
+        const color = i % 3 === 0 ? "red" : "white";
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
@@ -163,8 +162,8 @@ export default class Simulator extends Component {
               <input
                 id="size"
                 type="range"
-                min="100"
-                max="800"
+                min="50"
+                max="500"
                 defaultValue="150"
                 onChange={() => this.resetarray()}
               ></input>
