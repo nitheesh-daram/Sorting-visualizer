@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Simulator.css";
 import { normalsort } from "../Algos/Algos";
 import { bubblesort } from "../Algos/Algos";
-
+import { mergesort } from "../Algos/Algos";
 // Animation speed
 let speed = 1;
 
@@ -43,7 +43,7 @@ export default class Simulator extends Component {
         let comp = document.getElementById("comp");
         this.state.comparisions = this.state.comparisions + 1;
         comp.innerHTML = "Comparisions : " + this.state.comparisions;
-      }, speed);
+      }, index * speed);
       setTimeout(() => {
         let temp = arrayBars[swap[1]].style.height;
         arrayBars[swap[1]].style.height = arrayBars[swap[0]].style.height;
@@ -53,12 +53,12 @@ export default class Simulator extends Component {
           let comp = document.getElementById("swap");
           comp.innerHTML = "Swaps : " + this.state.swaps;
         }
-      }, speed);
+      }, index * speed);
       setTimeout(() => {
         const arrayBars = document.getElementsByClassName("array-bar");
         arrayBars[comparison[1]].style.backgroundColor = "blueviolet";
         arrayBars[comparison[0]].style.backgroundColor = "blueviolet";
-      }, speed);
+      }, index * speed);
     }
   }
 
@@ -71,6 +71,36 @@ export default class Simulator extends Component {
     this.animate(animations);
   }
 
+  mergesort() {
+    const animations = mergesort(this.state.array);
+    for (let i = 0; i < animations.length; i++) {
+      const arrayBars = document.getElementsByClassName("array-bar");
+      const isColorChange = i % 3 !== 2;
+      if (isColorChange) {
+        const [barOneIdx, barTwoIdx] = animations[i];
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 3 === 0 ? "red" : "blueviolet";
+        setTimeout(() => {
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
+          let comp = document.getElementById("comp");
+          this.state.comparisions = this.state.comparisions + 1;
+          comp.innerHTML = "Comparisions : " + this.state.comparisions;
+        }, i * speed);
+      } else {
+        setTimeout(() => {
+          this.state.swaps = this.state.swaps + 1;
+          let comp = document.getElementById("swap");
+          comp.innerHTML = "Swaps : " + this.state.swaps;
+          const [barOneIdx, newHeight] = animations[i];
+          const barOneStyle = arrayBars[barOneIdx].style;
+          barOneStyle.height = `${newHeight}px`;
+        }, i * speed);
+      }
+    }
+  }
+
   start() {
     const algo = document.getElementById("algo").value;
     console.log(algo);
@@ -78,6 +108,8 @@ export default class Simulator extends Component {
       this.normalsort();
     } else if (algo === "2") {
       this.bubblesort();
+    } else if (algo === "3") {
+      this.mergesort();
     } else {
       alert("select algo!");
     }
@@ -116,6 +148,7 @@ export default class Simulator extends Component {
               <option value="">--Select--</option>
               <option value="1">Naive Sort</option>
               <option value="2">Bubble Sort</option>
+              <option value="3">Merge Sort</option>
             </select>
             <br />
             <label>Adjust Size : </label> <span></span>
