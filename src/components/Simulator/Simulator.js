@@ -4,7 +4,7 @@ import { normalsort } from "../Algos/Algos";
 import { bubblesort } from "../Algos/Algos";
 import { mergesort } from "../Algos/Algos";
 // Animation speed
-let speed = 1;
+let speed = 10;
 
 export default class Simulator extends Component {
   constructor(props) {
@@ -41,6 +41,7 @@ export default class Simulator extends Component {
         arrayBars[comparison[1]].style.backgroundColor = "orange";
         arrayBars[comparison[0]].style.backgroundColor = "red";
         let comp = document.getElementById("comp");
+        // eslint-disable-next-line
         this.state.comparisions = this.state.comparisions + 1;
         comp.innerHTML = "Comparisions : " + this.state.comparisions;
       }, index * speed);
@@ -49,6 +50,7 @@ export default class Simulator extends Component {
         arrayBars[swap[1]].style.height = arrayBars[swap[0]].style.height;
         arrayBars[swap[0]].style.height = temp;
         if (swap[0] !== swap[1]) {
+          // eslint-disable-next-line
           this.state.swaps = this.state.swaps + 1;
           let comp = document.getElementById("swap");
           comp.innerHTML = "Swaps : " + this.state.swaps;
@@ -85,11 +87,13 @@ export default class Simulator extends Component {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
           let comp = document.getElementById("comp");
+          // eslint-disable-next-line
           this.state.comparisions = this.state.comparisions + 1;
           comp.innerHTML = "Comparisions : " + this.state.comparisions;
         }, i * speed);
       } else {
         setTimeout(() => {
+          // eslint-disable-next-line
           this.state.swaps = this.state.swaps + 1;
           let comp = document.getElementById("swap");
           comp.innerHTML = "Swaps : " + this.state.swaps;
@@ -103,7 +107,6 @@ export default class Simulator extends Component {
 
   start() {
     const algo = document.getElementById("algo").value;
-    console.log(algo);
     if (algo === "1") {
       this.normalsort();
     } else if (algo === "2") {
@@ -114,6 +117,7 @@ export default class Simulator extends Component {
       alert("select algo!");
     }
   }
+
   render() {
     const array = this.state.array;
     let f = 100 / array.length;
@@ -133,7 +137,6 @@ export default class Simulator extends Component {
               })}
             </div>
           </div>
-
           <div className="controls">
             <br />
             <button
@@ -143,9 +146,8 @@ export default class Simulator extends Component {
               Generate New array
             </button>{" "}
             <br />
-            <label>Select Sorting Algorithm : </label> <span></span>
-            <select id="algo" name="algo" classname="">
-              <option value="">--Select--</option>
+            <label>Sorting Algorithm : </label> <span></span>
+            <select id="algo" name="algo" defaultValue="3">
               <option value="1">Naive Sort</option>
               <option value="2">Bubble Sort</option>
               <option value="3">Merge Sort</option>
@@ -155,13 +157,13 @@ export default class Simulator extends Component {
             <input
               id="size"
               type="range"
-              min="50"
-              max="200"
-              defaultValue="100"
+              min="100"
+              max="800"
+              defaultValue="150"
               onChange={() => this.resetarray()}
             ></input>
             <h6 id="arraySize">Size : {this.state.array.length}</h6>
-            <button className="btn btn-primary" onClick={() => this.start()}>
+            <button className="btn btn-success" onClick={() => this.start()}>
               Start
             </button>
             <h6 id="comp">Comparisions : {this.state.comparisions}</h6>
@@ -176,11 +178,10 @@ export default class Simulator extends Component {
 function randomIntfromRange(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-
+// eslint-disable-next-line
 function arraysareequal(jssorted, algosorted) {
   if (jssorted.length !== algosorted.length) return false;
   for (let index = 0; index < jssorted.length; index++) {
-    console.log(jssorted[index], algosorted[index]);
     if (jssorted[index] !== algosorted[index]) return false;
   }
   return true;

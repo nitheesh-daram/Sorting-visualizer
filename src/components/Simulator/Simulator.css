@@ -16,7 +16,7 @@
   height: 450px;
   padding-top: 5%;
 }
-.array-bar  {
+.array-bar,.array-bar1  {
   display: inline-block;
   background-color: blueviolet;
 }
