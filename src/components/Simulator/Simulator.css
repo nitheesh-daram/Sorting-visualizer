@@ -1,75 +1,128 @@
-.whole_container{
+.whole_container {
   margin-top: 5%;
 }
+.buttons {
+    width: 80%;
+    /* margin: auto; */
+  }
 
-.simulator {
-  width: 65%;
-  float: left;
-  position: absolute;
-  left: 1%;
-  margin-left:1%;
-  border-radius: 25px;
-}
-.array-box{
-  padding: 10px;
-  height: 450px;
-  padding-top: 5%;
-  overflow: hidden;
-}
-.array-bar  {
-  display: inline-block;
-  /* background-color: #343a40; */
-  background-color: white;
-  /* border-top-style:dashed ; */
-  /* border-top-color: black; */
-}
-.controls{
-  margin-left:70% ;
-  height: 80vh;
-  padding-top: 5%;
-  color: white;
+  .new {
+    float: left;
+    margin-left: 0%;
+  }
+  .start {
+    float: right;
+    margin-right: 5%;
+  }
+  .data-single {
+    display: inline-block;
+  }
+  #speed-data,
+  #swap {
+    margin-left: 5%;
+  }
+
+  #swap,
+  #comp {
+    color: red;
+  }
+@media screen and (max-width: 500px) {
+  .simulator {
+    width: 100%;
+    /* float: left; */
+    position: relative;
+    /* left: 1%; */
+    margin-left: 1%;
+    border-radius: 25px;
+  }
+  .array-box {
+    padding: 10px;
+    height: 450px;
+    padding-top: 5%;
+    overflow: hidden;
+  }
+  .array-bar {
+    display: inline-block;
+    /* background-color: #343a40; */
+    background-color: white;
+    /* border-top-style:dashed ; */
+    /* border-top-color: black; */
+  }
+  .controls {
+    margin-left: 5%;
+    height: 80vh;
+    padding-top: 5%;
+    color: white;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .real-controls {
+    width: 100%;
+    margin: auto;
+  }
+  hr {
+    margin-right: 20px;
+    /* background-color: black; */
+    height: 2px;
+    background-color: white;
+  }
+  .data {
+    width: 80%;
+    margin: auto;
+  }
+
+  
 }
 
-.title{
-/* margin-top: 10%; */
-  width: 100%;
-  margin-bottom: 10%;
-}
+@media screen and (min-width: 500px) {
+  .simulator {
+    width: 65%;
+    float: left;
+    position: absolute;
+    left: 1%;
+    margin-left: 1%;
+    border-radius: 25px;
+  }
+  .array-box {
+    padding: 10px;
+    height: 450px;
+    padding-top: 5%;
+    overflow: hidden;
+  }
+  .array-bar {
+    display: inline-block;
+    /* background-color: #343a40; */
+    background-color: white;
+    /* border-top-style:dashed ; */
+    /* border-top-color: black; */
+  }
+  .controls {
+    margin-left: 70%;
+    height: 80vh;
+    padding-top: 5%;
+    color: white;
+  }
 
-.real-controls{
-width: 80%;
-margin: auto;
-}
-hr{
-  margin-right: 20px;
-  /* background-color: black; */
-  height: 2px;
-}
-.data{
-  width: 80%;
-  margin: auto;
-}
+  .title {
+    /* margin-top: 10%; */
+    width: 100%;
+    margin-bottom: 10%;
+  }
 
-.buttons{
-width: 80%;
-/* margin: auto; */
-}
-
-.new{
-  float: left;
-  margin-left: 0%;
-}
-.start{
-  float: right;
-  margin-right: 5%;
-}
-.data-single{
-  display: inline-block;
-}
-#speed-data ,#swap{
-  margin-left: 5%;
-}
-
-#swap,#comp{
-  color: red;
+  .real-controls {
+    width: 80%;
+    margin: auto;
+  }
+  hr {
+    margin-right: 20px;
+    background-color: white;
+    height: 2px;
+  }
+  .data {
+    width: 80%;
+    margin: auto;
+  }
 }
