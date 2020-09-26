@@ -158,7 +158,7 @@ export default class Simulator extends Component {
                 <option value="3">Merge Sort</option>
               </select>
               <br />
-              <label>Adjust Size : </label> <br/>
+              <label>Adjust Size : </label> <br />
               <input
                 id="size"
                 type="range"
@@ -168,7 +168,7 @@ export default class Simulator extends Component {
                 onChange={() => this.resetarray()}
               ></input>
               <br />
-              <label>Adjust Speed : </label> <br/>
+              <label>Adjust Speed : </label> <br />
               <input
                 id="speed"
                 type="range"
