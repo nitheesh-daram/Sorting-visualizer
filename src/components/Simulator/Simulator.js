@@ -38,7 +38,7 @@ export default class Simulator extends Component {
       let comparison = animations[index].comparision;
       let swap = animations[index].swap;
       setTimeout(() => {
-        arrayBars[comparison[1]].style.backgroundColor = "black";
+        arrayBars[comparison[1]].style.backgroundColor = "orange";
         arrayBars[comparison[0]].style.backgroundColor = "red";
         let comp = document.getElementById("comp");
         // eslint-disable-next-line
@@ -173,9 +173,9 @@ export default class Simulator extends Component {
                 id="speed"
                 type="range"
                 min="1"
-                max="101"
+                max="11"
                 defaultValue="1"
-                step="25"
+                step="5"
                 onChange={() => this.speed()}
               ></input>
             </div>

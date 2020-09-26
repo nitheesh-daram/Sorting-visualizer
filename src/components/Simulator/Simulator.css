@@ -90,6 +90,9 @@
     /* background-color: #343a40; */
     background-color: white;
   }
+  .array-bar:hover{
+    background-color: green;
+  }
   .controls {
     margin-left: 70%;
     height: 80vh;

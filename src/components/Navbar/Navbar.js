@@ -9,7 +9,7 @@ const Navbar = () => {
       <ul class="navbar-nav">
         <li
           className="nav-item active"
-          style={{ color: "white", fontSize: "80%", marginTop: "10%" }}
+          style={{ color: "white", fontSize: "80%", marginTop: "10%",float:"right" }}
         >
           - Made with{" "}
           <span role="img" aria-label="">
