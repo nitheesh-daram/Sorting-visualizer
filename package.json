@@ -1,6 +1,5 @@
 {
   "name": "sorting-visualizer",
-  "homepage": "http://nitheesh-daram.github.io/Sorting-visualizer",
   "version": "0.1.0",
   "private": true,
   "engines": {
